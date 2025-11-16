@@ -2637,7 +2637,7 @@
 		-webkit-flex-wrap: wrap;
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
-		postiion: relative;
+		position: relative;
 		margin: -2.5em 0 0 -2.5em;
 	}
 
@@ -2974,7 +2974,7 @@
 						}
 
 						#header nav ul li a[href="#menu"]:before {
-							background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 8px%3B stroke: %23f2849e%3B %7D%3C/style%3E%3Cline x1='0' y1='25' x2='100' y2='25' /%3E%3Cline x1='0' y1='50' x2='100' y2='50' /%3E%3Cline x1='0' y1='75' x2='100' y2='75' /%3E%3C/svg%3E");
+							background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 8px%3B stroke: %23343434%3B %7D%3C/style%3E%3Cline x1='0' y1='25' x2='100' y2='25' /%3E%3Cline x1='0' y1='50' x2='100' y2='50' /%3E%3Cline x1='0' y1='75' x2='100' y2='75' /%3E%3C/svg%3E");
 							opacity: 0;
 						}
 
@@ -3035,7 +3035,7 @@
 		height: 100%;
 		-webkit-overflow-scrolling: touch;
 		background: #585858;
-		color: #ffffff;
+		color: #fffffffa;
 		cursor: default;
 		visibility: hidden;
 		z-index: 10002;
@@ -3065,20 +3065,25 @@
 
 				#menu > .inner > ul > li {
 					padding: 0;
-					border-top: solid 1px rgba(255, 255, 255, 0.15);
+					border-top: solid 1px #ffffff26;
 				}
+
+				#menu > .inner > ul > li.category {
+					padding-top: 1em; /* spacing above category title */
+					padding-bottom: 0.75em;
+				}				
 
 					#menu > .inner > ul > li a {
 						display: block;
 						padding: 1em 0;
-						line-height: 1.5;
+						line-height: 1.25;
 						border: 0;
 						color: inherit;
 					}
 
 					#menu > .inner > ul > li:first-child {
 						border-top: 0;
-						margin-top: -1em;
+						margin-top: -1.75em;
 					}
 
 		#menu > .close {
@@ -3124,7 +3129,7 @@
 			}
 
 			#menu > .close:before {
-				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 8px%3B stroke: %23f2849e%3B %7D%3C/style%3E%3Cline x1='15' y1='15' x2='85' y2='85' /%3E%3Cline x1='85' y1='15' x2='15' y2='85' /%3E%3C/svg%3E");
+				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 8px%3B stroke: %23343434%3B %7D%3C/style%3E%3Cline x1='15' y1='15' x2='85' y2='85' /%3E%3Cline x1='85' y1='15' x2='15' y2='85' /%3E%3C/svg%3E");
 				opacity: 0;
 			}
 
@@ -3141,6 +3146,37 @@
 				opacity: 0;
 			}
 
+			/* Make all menu links bold on hover without changing color */
+			#menu a {
+				border-bottom: 0;      /* no dotted underline from global <a> */
+				color: #ffffff;        /* inherit #menu’s white */
+			  }
+			  
+			  #menu a:hover {
+				font-weight: 400 !important;
+				color: #ffffff !important;        /* keep same color on hover */
+				border-bottom: 0;      /* make sure nothing sneaks back in */
+			  }			  
+
+			/* Menu category label */
+			#menu .category-title {
+				font-size: small;
+				font-weight: 300;
+				color: #d1cfcd;
+				border: 0;              /* remove default Phantom top border */
+				padding-top: 0;             /* prevent it from looking like a menu item */
+			}
+			
+			/* Category items (links) */
+			#menu .category + li a {
+				font-weight: 300;
+			}
+			
+			/* Remove the line separators for category label */
+			#menu .category:first-child {
+				margin-top: 0;
+			}
+  
 		@media screen and (max-width: 736px) {
 
 			#menu {
